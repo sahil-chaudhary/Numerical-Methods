@@ -1,0 +1,21 @@
+import math
+def compsimp(a,b,n):
+    h=(b-a)/n
+    integral=0
+    while h<=b:
+        integral=simpinteg(a,h)+integral
+        a=h
+        h=h+0.25
+    return float(integral)
+
+def simpinteg(a,b):
+    h=b-a
+    mid=(a+b)/2
+    f_mid=mid**3
+    f_a=a**3
+    f_b=b**3
+    error=(h**5/90)*(6)
+    integral=(h/6)*(f_a+f_b+4*f_mid)-error
+    return integral
+
+print(compsimp(1,2,4))
